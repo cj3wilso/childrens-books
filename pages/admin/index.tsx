@@ -1,5 +1,6 @@
 import Head from "next/head";
-import Layout from "@/components/layout/layout";
+import PageLayout from "@/components/layout/page/page";
+import Book from "@/components/layout/book/book";
 
 function Admin() {
   return (
@@ -10,9 +11,9 @@ function Admin() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        Hi
-      </Layout>
+      <PageLayout type="informational">
+        <Book></Book>
+      </PageLayout>
     </>
   );
 }

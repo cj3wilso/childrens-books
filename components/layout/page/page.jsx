@@ -1,22 +1,23 @@
 import { Architects_Daughter } from "next/font/google";
 
 import {
+  PageContainer,
+  Header,
   Main,
-  Description,
   Kids,
   Logo,
   Books,
-} from "./layout.styles";
+} from "./page.styles";
 
 const architectsDaughter = Architects_Daughter({
   weight: "400",
   subsets: ["latin"],
 });
 
-function Layout(props) {
+function PageLayout(props) {
   return (
-    <Main className={architectsDaughter.className}>
-      <Description>
+    <PageContainer className={architectsDaughter.className} type={props.type}>
+      <Header>
         <a href="/" rel="noopener noreferrer">
           <Logo>
             <Kids>
@@ -32,10 +33,12 @@ function Layout(props) {
           Get started by editing&nbsp;
           <code>pages/index.tsx</code>
         </p>
-      </Description>
+      </Header>
+      <Main>
       {props.children}
-    </Main>
+      </Main>
+    </PageContainer>
   );
 }
 
-export default Layout;
+export default PageLayout;

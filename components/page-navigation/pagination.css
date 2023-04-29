@@ -1,0 +1,30 @@
+.pagination {
+	margin-bottom: 30px;
+}
+.pagination span {
+	width: auto;
+}
+.pagination .pagination-item {
+	padding: 0;
+    margin: 0 6px 10px;
+    text-align: center;
+	cursor: pointer;
+	width: auto;
+}
+.pagination .pagination-item.active {
+    font-weight: 700;
+	cursor: default;
+	border-bottom: 2px solid #5b1647;
+}
+html .pagination [title="Previous"],
+html .pagination [title="Next"] {
+    background-color: #70b4b8;
+    padding: 4px 18px 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+html .pagination [title="Previous"]:hover,
+html .pagination [title="Next"]:hover {
+    background-color: #5f9fa3;
+}

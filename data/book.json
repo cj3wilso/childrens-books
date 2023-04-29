@@ -1,0 +1,13 @@
+{
+  "title": "This is the title",
+  "subtitle": "This is the subtitle",
+  "character": "chameleon",
+  "pages": [
+    { "copy": "Sentra", "animal": "Tiger", "environment": "Jungle" },
+    { "copy": "Maxima", "animal": "Bear", "environment": "Forest" },
+    { "copy": "Skyline", "animal": "Lion", "environment": "Savanna" },
+    { "copy": "Sentra", "animal": "Piranha", "environment": "River" },
+    { "copy": "Maxima", "animal": "Goat", "environment": "Mountain" },
+    { "copy": "Skyline", "animal": "Scorpion", "environment": "Desert" }
+  ]
+}

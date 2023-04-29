@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout from "@/components/layout/layout";
+import PageLayout from "@/components/layout/page/page";
 import Clouds from "@/components/drawings/clouds";
 import Grass from "@/components/drawings/grass";
 
@@ -20,7 +20,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Clouds />
-      <Layout>
+      <PageLayout type="marketing">
         <Center>
           <h1>DOWNLOAD MY FREE BOOK</h1>
         </Center>
@@ -46,7 +46,7 @@ function Home() {
             <p>From one simple word per page to a structured story.</p>
           </Card>
         </Grid>
-      </Layout>
+      </PageLayout>
       <Grass />
     </>
   );

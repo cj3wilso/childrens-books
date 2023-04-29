@@ -1,15 +1,20 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: ${(props) => (props.type === "marketing" ? "6rem" : "1rem")};
   min-height: 100vh;
+  @media print {
+    padding: 0;
+    margin: 0;
+    min-height: unset;
+  }
 `;
 
-export const Description = styled.div`
+export const Header = styled.header`
   display: inherit;
   justify-content: inherit;
   align-items: inherit;
@@ -36,6 +41,14 @@ export const Description = styled.div`
     a {
       padding: 1rem;
     }
+  }
+`;
+export const Main = styled.main`
+  width: 100%;
+  @media print {
+    min-height: unset;
+    padding 0 !important;
+    margin: 0 !important;  
   }
 `;
 
