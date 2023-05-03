@@ -107,6 +107,12 @@ function Book() {
     <div>
       <GlobalStyle />
       <Container>
+      {/* <HTMLFlipBook width={595} height={842}>
+            <div className="demoPage">Page 1</div>
+            <div className="demoPage">Page 2</div>
+            <div className="demoPage">Page 3</div>
+            <div className="demoPage">Page 4</div>
+        </HTMLFlipBook> */}
         <BookPages pdfRef={pdfRef} className="print" />
         <BookPages />
         <PageNavigation
