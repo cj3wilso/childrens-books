@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Architects_Daughter } from "next/font/google";
 
 import {
@@ -18,7 +19,7 @@ function PageLayout(props) {
   return (
     <PageContainer className={architectsDaughter.className} type={props.type}>
       <Header>
-        <a href="/" rel="noopener noreferrer">
+        <Link href="/" rel="noopener noreferrer">
           <Logo>
             <Kids>
               <span>K</span>
@@ -28,7 +29,7 @@ function PageLayout(props) {
             </Kids>
             <Books>Tales!</Books>
           </Logo>
-        </a>
+        </Link>
         <p>
           Get started by editing&nbsp;
           <code>pages/index.tsx</code>
