@@ -1,14 +1,11 @@
+import { lazy } from "react";
 import Head from "next/head";
-import PageLayout from "@/components/layout/page/page";
-import Clouds from "@/components/drawings/clouds";
-import Grass from "@/components/drawings/grass";
 
-import {
-  Grid,
-  Card,
-  Center,
-} from "@/styles/home.styles";
+const PageLayout = lazy(() => import("@/components/layout/page/page"));
+const Clouds = lazy(() => import("@/components/drawings/clouds"));
+const Grass = lazy(() => import("@/components/drawings/Grass"));
 
+import { Grid, Card, Center } from "@/styles/home.styles";
 
 function Home() {
   return (

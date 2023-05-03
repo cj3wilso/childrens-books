@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   @media print {
@@ -25,53 +25,116 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const print = {
+  styles: (...args) => css`
+    &.print {
+      ${css(...args)}
+    }
+    @media print {
+      ${css(...args)};
+    }
+  `,
+};
+
 export const Container = styled.div`
   width: 100%;
   max-width: 800px;
   margin: auto;
-  @media print {
+  ${print.styles`
     margin: 0;
-  }
+  `}
 `;
 
 export const BookContainer = styled.div`
-  aspect-ratio: 1.41429 / 1;
+  aspect-ratio: ${(props) =>
+    props.printSize === "a4" ? "1.41429 / 1" : "1.29412 / 1"};
   background: purple;
-  @media print {
+  ${print.styles`
     visibility: visible;
     height: auto;
     aspect-ratio: auto;
     max-width: unset;
-    padding 0 !important;
-    margin: 0 !important;  
-  }
+    padding: 0;
+    margin: 0;
+  `};
 `;
 
 export const Page = styled.div`
-  background: blue !important;
+  display: flex;
+  direction: ltr;
+  justify-content: flex-end;
+  background: blue;
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
-  padding: ${(props) => (props.show ? "20px" : "0")};
+  padding-right: ${(props) => (props.show ? "0.25in" : "0")};
   height: ${(props) => (props.show ? "100%" : "0")};
-  @media print {
+  ${print.styles`
     visibility: visible;
-    display: block !important;
-    width: 29.7cm;
-    // height: 21cm;
-    height: 20.955cm;
-    padding: 0.125in;
-    margin: 0 !important;
+    width: ${(props) => (props.printSize === "a4" ? "11.7in" : "11in")};
+    // height: 8.3in 8.5in;
+    height: ${(props) => (props.printSize === "a4" ? "8.2501in" : "8.5in")};
+    padding-right: 0.25in;
+    margin: 0;
     page-break-after: always;
+    page-break-inside: avoid;
     &:last-child {
       page-break-after: auto;
     }
-  }
+  `};
 `;
 
 export const SubPage = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 85.47%;
+  height: 90.91%;
+  align-self: center;
   padding: 0.125in;
-  margin: 0 !important;
-  border: 1px red solid;
-  background: yellow !important;
+  margin: 0;
+  background: yellow;
+  ${print.styles`
+     width: 10in;
+    height: 7.5in;
+    padding: 0.125in;
+    background: green;
+  `};
+`;
+
+export const LayoutButton = styled.div`
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+
+  &:focus {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+  }
+  ${print.styles`
+    display: none;
+  `};
 `;

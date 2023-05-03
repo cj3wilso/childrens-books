@@ -1,6 +1,8 @@
+import { lazy } from "react";
 import Head from "next/head";
-import PageLayout from "@/components/layout/page/page";
-import Book from "@/components/layout/book/book";
+
+const PageLayout = lazy(() => import("@/components/layout/page/page"));
+const Book = lazy(() => import("@/components/layout/book/book"));
 
 function Admin() {
   return (
@@ -12,7 +14,7 @@ function Admin() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageLayout type="informational">
-        <Book></Book>
+        <Book />
       </PageLayout>
     </>
   );

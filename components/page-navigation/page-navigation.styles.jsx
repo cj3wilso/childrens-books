@@ -1,13 +1,23 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+export const print = {
+  styles: (...args) => css`
+    &.print {
+      ${css(...args)};
+    }
+    @media print {
+        ${css(...args)};
+    }
+  `,
+};
 
 export const NavigationContainer = styled.nav`
   display: flex;
   list-style: none;
   flex-wrap: wrap;
-  show
-  @media print {
+  ${print.styles`
     display: none;
-  }
+  `}
 `;
 
 const PrevNext = styled.span`
