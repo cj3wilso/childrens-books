@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: ${(props) => (props.type === "marketing" ? "6rem" : "1rem")};
   min-height: 100vh;
