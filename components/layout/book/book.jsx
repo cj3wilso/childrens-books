@@ -85,11 +85,8 @@ function Book() {
           show={currentPage === 1 ? true : false}
           printSize={printSize}
         >
-          <SubPage className={className} backgroundColor={BookData.backgroundColor}>
-            <BookTitle>{BookData.titleLine1} <br /> {BookData.titleLine2}</BookTitle>
-            <ImageContainer>
-              <Image src={`/${BookData.characterImage}`} width="762" height="714" alt="chameleon" />
-            </ImageContainer>
+          <SubPage className={className} background={BookData.background}>
+            <BookTitle>{BookData.title}</BookTitle>s
           </SubPage>
         </Page>
         {BookData.pages.map((item, index) => {

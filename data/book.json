@@ -1,9 +1,7 @@
 {
-  "titleLine1": "Ziggy the chameleon",
-  "titleLine2": "goes around the world!",
+  "title": "Sameleon the Chameleon goes around the world!",
   "character": "chameleon",
-  "characterImage": "chameleon.png",
-  "backgroundColor": "#aec107",
+  "background": "cover.png",
   "pages": [
     { "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, mi eu tristique vulputate, turpis tortor pellentesque velit, et gravida nulla augue eu ligula. ", "animal": "Tiger", "environment": "Jungle", "background": "jungle.png"  },
     { "copy": "Sed neque augue, ullamcorper eget mauris ac, luctus interdum turpis. Maecenas non gravida risus, id fringilla tellus.", "animal": "Bear", "environment": "Forest", "background": "forest.png" },

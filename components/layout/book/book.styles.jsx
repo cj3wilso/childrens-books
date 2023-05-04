@@ -124,13 +124,28 @@ export const ContentArea = styled.div`
   ${print.styles`
     padding: 0.125in;
   `};
+  @media (max-width: 820px) {
+    font-size: 13px;
+  }
 `;
 
 export const BookTitle = styled.h1`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   text-transform: capitalize;
   color: white;
-  text-align: center;
   width: 100%;
+  padding: 0 7rem;
+  @media (max-width: 820px) {
+    font-size: 28px;
+    padding: 0 4rem;
+  }
+  @media (max-width: 500px) {
+    font-size: 20px;
+    padding: 0 2.5rem;
+  }
 `;
 
 export const ImageContainer = styled.div`
