@@ -1,4 +1,5 @@
 import React, { lazy, useState, useRef } from "react";
+import Image from "next/image";
 // import HTMLFlipBook from "react-pageflip";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -26,6 +27,9 @@ import {
   Page,
   SubPage,
   LayoutButton,
+  ContentArea,
+  BookTitle,
+  ImageContainer,
 } from "./book.styles";
 
 function Book() {
@@ -81,8 +85,11 @@ function Book() {
           show={currentPage === 1 ? true : false}
           printSize={printSize}
         >
-          <SubPage className={className}>
-            {BookData.title} {BookData.subtitle} {BookData.character}
+          <SubPage className={className} backgroundColor={BookData.backgroundColor}>
+            <BookTitle>{BookData.titleLine1} <br /> {BookData.titleLine2}</BookTitle>
+            <ImageContainer>
+              <Image src={`/${BookData.characterImage}`} width="762" height="714" />
+            </ImageContainer>
           </SubPage>
         </Page>
         {BookData.pages.map((item, index) => {
@@ -93,8 +100,8 @@ function Book() {
               show={currentPage === index + 2 ? true : false}
               printSize={printSize}
             >
-              <SubPage className={className}>
-                {item.animal} {item.environment} {item.copy}
+              <SubPage className={className} background={item.background}>
+              <ContentArea>{item.copy}</ContentArea>
               </SubPage>
             </Page>
           );

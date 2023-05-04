@@ -15,6 +15,9 @@ export const NavigationContainer = styled.nav`
   display: flex;
   list-style: none;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  margin: 12px 0;
   ${print.styles`
     display: none;
   `}

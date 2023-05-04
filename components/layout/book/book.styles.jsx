@@ -63,12 +63,14 @@ export const Page = styled.div`
   display: flex;
   direction: ltr;
   justify-content: flex-end;
-  background: blue;
+  background: white;
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
   padding-right: ${(props) => (props.show ? "0.25in" : "0")};
   height: ${(props) => (props.show ? "100%" : "0")};
+
   ${print.styles`
     visibility: visible;
+    background: white;
     width: ${(props) => (props.printSize === "a4" ? "11.7in" : "11in")};
     // height: 8.3in 8.5in;
     height: ${(props) => (props.printSize === "a4" ? "8.2501in" : "8.5in")};
@@ -83,18 +85,54 @@ export const Page = styled.div`
 `;
 
 export const SubPage = styled.div`
-  width: 85.47%;
-  height: 90.91%;
+  display: flex;
+  width: 720px;
+  height: 540px;
   align-self: center;
-  padding: 0.125in;
   margin: 0;
-  background: yellow;
+  background-image: ${(props) =>
+    props.background !== "" ? `url("/${props.background}")` : ""};
+  background-color: ${(props) =>
+    props.backgroundColor !== "" ? props.backgroundColor : ""};
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
   ${print.styles`
      width: 10in;
     height: 7.5in;
-    padding: 0.125in;
-    background: green;
   `};
+`;
+
+export const ContentArea = styled.div`
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 6px;
+  align-self: flex-end;
+  width: 100%;
+  ${print.styles`
+    padding: 0.125in;
+  `};
+`;
+
+export const BookTitle = styled.h1`
+  text-transform: capitalize;
+  color: white;
+  text-align: center;
+  width: 100%;
+`;
+
+export const ImageContainer = styled.div`
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 0 auto;
+    z-index: 0;
+  img {
+    object-fit: contain;
+    width: 500px;
+  }
 `;
 
 export const LayoutButton = styled.div`

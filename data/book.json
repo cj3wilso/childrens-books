@@ -1,13 +1,15 @@
 {
-  "title": "This is the title",
-  "subtitle": "This is the subtitle",
+  "titleLine1": "Ziggy the chameleon",
+  "titleLine2": "goes around the world!",
   "character": "chameleon",
+  "characterImage": "chameleon.png",
+  "backgroundColor": "#aec107",
   "pages": [
-    { "copy": "Sentra", "animal": "Tiger", "environment": "Jungle" },
-    { "copy": "Maxima", "animal": "Bear", "environment": "Forest" },
-    { "copy": "Skyline", "animal": "Lion", "environment": "Savanna" },
-    { "copy": "Sentra", "animal": "Piranha", "environment": "River" },
-    { "copy": "Maxima", "animal": "Goat", "environment": "Mountain" },
-    { "copy": "Skyline", "animal": "Scorpion", "environment": "Desert" }
+    { "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, mi eu tristique vulputate, turpis tortor pellentesque velit, et gravida nulla augue eu ligula. ", "animal": "Tiger", "environment": "Jungle", "background": "jungle.png"  },
+    { "copy": "Sed neque augue, ullamcorper eget mauris ac, luctus interdum turpis. Maecenas non gravida risus, id fringilla tellus.", "animal": "Bear", "environment": "Forest", "background": "forest.png" },
+    { "copy": "Praesent accumsan lectus ac ipsum convallis mollis. Fusce faucibus sapien sed posuere iaculis.", "animal": "Lion", "environment": "Savanna", "background": "savanna.png" },
+    { "copy": "Vestibulum molestie cursus sapien nec imperdiet. Quisque non ligula non orci placerat luctus.", "animal": "Piranha", "environment": "River", "background": "river.png" },
+    { "copy": "Phasellus eleifend arcu orci, eget condimentum leo rhoncus ac. ", "animal": "Goat", "environment": "Mountain", "background": "mountain.png" },
+    { "copy": "Suspendisse ipsum lectus, sodales ac facilisis ac, consequat quis dui.", "animal": "Scorpion", "environment": "Desert", "background": "desert.png" }
   ]
 }
