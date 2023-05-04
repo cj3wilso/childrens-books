@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
   padding: ${(props) => (props.type === "marketing" ? "6rem" : "1rem")};
   min-height: 100vh;
@@ -16,7 +15,7 @@ export const PageContainer = styled.div`
 
 export const Header = styled.header`
   display: inherit;
-  justify-content: inherit;
+  justify-content: space-between;
   align-items: inherit;
   font-size: 0.85rem;
   max-width: var(--max-width);
