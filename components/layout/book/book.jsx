@@ -88,7 +88,7 @@ function Book() {
           <SubPage className={className} backgroundColor={BookData.backgroundColor}>
             <BookTitle>{BookData.titleLine1} <br /> {BookData.titleLine2}</BookTitle>
             <ImageContainer>
-              <Image src={`/${BookData.characterImage}`} width="762" height="714" />
+              <Image src={`/${BookData.characterImage}`} width="762" height="714" alt="chameleon" />
             </ImageContainer>
           </SubPage>
         </Page>
