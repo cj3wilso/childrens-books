@@ -103,6 +103,11 @@ export const SubPage = styled.div`
      width: 10in;
     height: 7.5in;
   `};
+  @media (max-width: 820px) {
+    width: 85.47%;
+    height: 90.91%;
+    background-size: cover;
+  }
 `;
 
 export const ContentArea = styled.div`
@@ -124,14 +129,21 @@ export const BookTitle = styled.h1`
 `;
 
 export const ImageContainer = styled.div`
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin: 0 auto;
-    z-index: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin: 0 auto;
+  z-index: 0;
+  @media (max-width: 820px) {
+      bottom: -40px;
+    }
   img {
     object-fit: contain;
     width: 500px;
+    @media (max-width: 820px) {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 
