@@ -57,6 +57,11 @@ export const BookContainer = styled.div`
     padding: 0;
     margin: 0;
   `};
+  @media (max-width: 820px) {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 export const Page = styled.div`
@@ -135,8 +140,8 @@ export const ImageContainer = styled.div`
   margin: 0 auto;
   z-index: 0;
   @media (max-width: 820px) {
-      bottom: -40px;
-    }
+    bottom: -40px;
+  }
   img {
     object-fit: contain;
     width: 500px;

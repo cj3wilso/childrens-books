@@ -46,7 +46,7 @@ export const Main = styled.main`
   width: 100%;
   @media print {
     min-height: unset;
-    padding 0 !important;
+    padding: 0 !important;
     margin: 0 !important;  
   }
 `;
