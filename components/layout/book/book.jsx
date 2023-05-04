@@ -86,7 +86,7 @@ function Book() {
           printSize={printSize}
         >
           <SubPage className={className} background={BookData.background}>
-            <BookTitle>{BookData.title}</BookTitle>s
+            <BookTitle>{BookData.title}</BookTitle>
           </SubPage>
         </Page>
         {BookData.pages.map((item, index) => {
