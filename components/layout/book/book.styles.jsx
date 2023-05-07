@@ -53,17 +53,19 @@ export const BookContainer = styled.div`
   aspect-ratio: ${(props) =>
     props.printSize === "a4" ? "1.41429 / 1" : "1.29412 / 1"};
   background: purple;
+  /* On landscape mode hide pagination elements - aspect ratio closer to print mode
+  Portrait mode needs opposite */
   @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-    height: calc(100dvh - 50px);
+    height: 100dvh;
     border: orange solid 2px;
+  }
+  @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    height: calc(100dvh - 50px);
   }
   @media (max-width: 820px) {
     width: 100vw;
     margin-left: 50%;
     transform: translateX(-50%);
-  }
-  @media (max-width: 500px) {
-    height: 100dvh;
   }
   ${print.styles`
     visibility: visible;

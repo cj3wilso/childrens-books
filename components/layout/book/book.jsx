@@ -1,5 +1,4 @@
 import React, { lazy, useState, useRef } from "react";
-import Image from "next/image";
 // import HTMLFlipBook from "react-pageflip";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -10,15 +9,15 @@ const PageNavigation = lazy(() =>
 import BookData from "../../../data/book.json";
 
 const pageDimensions = {
-    "a4": {
-        "width": "11.7",
-        "height": "8.3"
-    },
-    "letter": {
-        "width": "11",
-        "height": "8.5"
-    }
-}
+  a4: {
+    width: "11.7",
+    height: "8.3",
+  },
+  letter: {
+    width: "11",
+    height: "8.5",
+  },
+};
 
 import {
   GlobalStyle,
@@ -29,13 +28,39 @@ import {
   LayoutButton,
   ContentArea,
   BookTitle,
-  ImageContainer,
 } from "./book.styles";
 
 function Book() {
   const pdfRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [printSize, setPrintSize] = useState("a4");
+  const [touchPosition, setTouchPosition] = useState(null);
+
+  const handleTouchStart = (e) => {
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
+
+  const handleTouchMove = (e) => {
+    const touchDown = touchPosition;
+
+    if (touchDown === null) {
+      return;
+    }
+
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
+
+    if (diff > 5) {
+      next();
+    }
+
+    if (diff < -5) {
+      prev();
+    }
+
+    setTouchPosition(null);
+  };
 
   const viewPrintSize = (size) => {
     setPrintSize(size);
@@ -53,7 +78,16 @@ function Book() {
       const pageContent = pdfRef.current.children[i - 1]; // get page content element
       const canvas = await html2canvas(pageContent); // convert page content to canvas
       const imgData = canvas.toDataURL("image/png"); // convert canvas to image data
-      pdfDoc.addImage(imgData, "PNG", 0, 0, pageDimensions[printSize]["width"], pageDimensions[printSize]["height"], null, "SLOW"); // add image to PDF document
+      pdfDoc.addImage(
+        imgData,
+        "PNG",
+        0,
+        0,
+        pageDimensions[printSize]["width"],
+        pageDimensions[printSize]["height"],
+        null,
+        "SLOW"
+      ); // add image to PDF document
       if (i < totalPages) {
         pdfDoc.addPage(); // add new page for next content
       }
@@ -78,6 +112,8 @@ function Book() {
         className={className}
         style={divStyle}
         printSize={printSize}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         {...refProps}
       >
         <Page
@@ -98,7 +134,7 @@ function Book() {
               printSize={printSize}
             >
               <SubPage className={className} background={item.background}>
-              <ContentArea>{item.copy}</ContentArea>
+                <ContentArea>{item.copy}</ContentArea>
               </SubPage>
             </Page>
           );
@@ -111,7 +147,7 @@ function Book() {
     <div>
       <GlobalStyle />
       <Container>
-      {/* <HTMLFlipBook width={595} height={842}>
+        {/* <HTMLFlipBook width={595} height={842}>
             <div className="demoPage">Page 1</div>
             <div className="demoPage">Page 2</div>
             <div className="demoPage">Page 3</div>
