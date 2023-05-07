@@ -40,6 +40,10 @@ export const Container = styled.div`
   width: 100%;
   max-width: 800px;
   margin: auto;
+  @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    height: 100dvh;
+    border: red solid 1px;
+  }
   ${print.styles`
     margin: 0;
   `}
@@ -49,6 +53,18 @@ export const BookContainer = styled.div`
   aspect-ratio: ${(props) =>
     props.printSize === "a4" ? "1.41429 / 1" : "1.29412 / 1"};
   background: purple;
+  @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    height: calc(100dvh - 50px);
+    border: orange solid 2px;
+  }
+  @media (max-width: 820px) {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  @media (max-width: 500px) {
+    height: 100dvh;
+  }
   ${print.styles`
     visibility: visible;
     height: auto;
@@ -56,12 +72,9 @@ export const BookContainer = styled.div`
     max-width: unset;
     padding: 0;
     margin: 0;
-  `};
-  @media (max-width: 820px) {
     width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
+    transform: none;
+  `};
 `;
 
 export const Page = styled.div`
@@ -72,7 +85,6 @@ export const Page = styled.div`
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
   padding-right: ${(props) => (props.show ? "0.25in" : "0")};
   height: ${(props) => (props.show ? "100%" : "0")};
-
   ${print.styles`
     visibility: visible;
     background: white;
@@ -103,16 +115,21 @@ export const SubPage = styled.div`
   background-repeat: no-repeat;
   position: relative;
   padding: 20px;
-  overflow: hidden;
-  ${print.styles`
-     width: 10in;
-    height: 7.5in;
-  `};
   @media (max-width: 820px) {
     width: 85.47%;
     height: 90.91%;
     background-size: cover;
+    padding: 9px;
   }
+  @media (max-width: 500px) {
+    padding: 5px;
+  }
+  ${print.styles`
+    width: 10in;
+    height: 7.5in;
+    background-size: contain;
+    padding: 20px;
+  `};
 `;
 
 export const ContentArea = styled.div`
@@ -121,12 +138,15 @@ export const ContentArea = styled.div`
   padding: 6px;
   align-self: flex-end;
   width: 100%;
+  font-size: 16px;
+  @media (max-width: 820px) {
+    font-size: 12px;
+    line-height: 13px;
+  }
   ${print.styles`
+    font-size: 16px;
     padding: 0.125in;
   `};
-  @media (max-width: 820px) {
-    font-size: 13px;
-  }
 `;
 
 export const BookTitle = styled.h1`
@@ -146,6 +166,10 @@ export const BookTitle = styled.h1`
     font-size: 20px;
     padding: 0 2.5rem;
   }
+  ${print.styles`
+    font-size: 40px;
+    padding: 0 7rem;
+  `};
 `;
 
 export const ImageContainer = styled.div`
@@ -157,6 +181,9 @@ export const ImageContainer = styled.div`
   @media (max-width: 820px) {
     bottom: -40px;
   }
+  ${print.styles`
+    bottom: auto;
+  `};
   img {
     object-fit: contain;
     width: 500px;
@@ -164,6 +191,9 @@ export const ImageContainer = styled.div`
       width: 100%;
       height: auto;
     }
+    ${print.styles`
+      width: 500px;
+    `};
   }
 `;
 
