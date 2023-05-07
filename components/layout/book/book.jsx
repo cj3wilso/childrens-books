@@ -52,7 +52,7 @@ function Book() {
     const diff = touchDown - currentTouch;
 
     if (diff > 5) {
-      alert('next');
+      alert("next");
       if (currentPage !== BookData.pages.length + 1)
         setCurrentPage((prev) => prev + 1);
     }
@@ -146,7 +146,7 @@ function Book() {
   return (
     <div>
       <GlobalStyle />
-      <Container>
+      <Container onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
         {/* <HTMLFlipBook width={595} height={842}>
             <div className="demoPage">Page 1</div>
             <div className="demoPage">Page 2</div>
@@ -154,8 +154,7 @@ function Book() {
             <div className="demoPage">Page 4</div>
         </HTMLFlipBook> */}
         <BookPages pdfRef={pdfRef} className="print" />
-        <BookPages onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove} />
+        <BookPages />
         <PageNavigation
           pages={BookData.pages.length + 1}
           showPagination={true}
