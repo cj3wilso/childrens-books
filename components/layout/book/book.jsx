@@ -52,6 +52,7 @@ function Book() {
     const diff = touchDown - currentTouch;
 
     if (diff > 5) {
+      alert('next');
       if (currentPage !== BookData.pages.length + 1)
         setCurrentPage((prev) => prev + 1);
     }
