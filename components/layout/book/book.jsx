@@ -114,8 +114,6 @@ function Book() {
         className={className}
         style={divStyle}
         printSize={printSize}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
         {...refProps}
       >
         <Page
@@ -156,7 +154,8 @@ function Book() {
             <div className="demoPage">Page 4</div>
         </HTMLFlipBook> */}
         <BookPages pdfRef={pdfRef} className="print" />
-        <BookPages />
+        <BookPages onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove} />
         <PageNavigation
           pages={BookData.pages.length + 1}
           showPagination={true}
